@@ -24,14 +24,14 @@ program.version('1.0.0', '-v, --version').
         inquirer.prompt(question.bundle).then(answer => {
           if(answer.bundle){
             inquirer.prompt(question.bundleType).then(answer2 => {
-              console.log(answer2.bundleType)
+              console.log(answer2.bundleType);
               let git = gitList[answer2.bundleType];
               const spinner = ora('正在向下载模板...\n');
               spinner.start();
               child_process.exec('git clone ' + git.url, function (err, stdout, stderr) {
                 if (err) {
                   spinner.fail();
-                  console.log(err, chalk.red('模板下载失败'))
+                  console.log(err, chalk.red('模板下载失败'));
                 } else {
                   spinner.succeed();
                   shell.mv(__dirname + '/' + git.name, __dirname + '/' + name);
