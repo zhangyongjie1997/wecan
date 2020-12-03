@@ -5,10 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "name": "wecan publish",
+      "program": "${workspaceFolder}/dist/efes.js",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}\\src\\index.js"
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "args": ["publish"],
+      "cwd": "/Users/zhangyongjie/Desktop/work/WorksapceEfes/fe-edaijia-events/2020/driver2driver"
     }
   ]
 }
