@@ -66,7 +66,6 @@ var regExclude = function (root, rExcludes, rIncludes, done) {
     })
 }
 
-
 class Lookup {
     root = ''
     rIncludes = []
@@ -78,9 +77,28 @@ class Lookup {
         this.rIncludes = rIncludes || []
     }
 
-    lookup() {
+    lookdown() {
         this.__walk(this.root)
         return this.results
+    }
+
+    lookup(formats, pathOnly) {
+        this.__walkup(this.root, formats, pathOnly)
+        return this.results
+    }
+
+    __walkup(dir, formats, pathOnly = false) {
+        for (const format of formats) {
+            const fullPath = path.join(dir, format)
+            if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
+                this.results = pathOnly ? fullPath : fs.readFileSync(fullPath, 'utf-8')
+                return
+            }
+        }
+        const parentDir = path.dirname(dir)
+        if (parentDir !== dir) {
+            return this.__walkup(parentDir, formats, pathOnly)
+        }
     }
 
     __walk(root) {
@@ -106,26 +124,30 @@ class Lookup {
             })
 
             const stat = fs.statSync(dir)
-            if(stat && stat.isDirectory()){
+            if (stat && stat.isDirectory()) {
                 this.__walk(dir)
             }
-
         })
     }
 }
 
 /**
- * 
- * @param {*} root 
- * @param {*} rExcludes 
- * @param {*} rIncludes 
- * @returns 
+ *
+ * @param {*} root
+ * @param {*} rExcludes
+ * @param {*} rIncludes
+ * @returns
  */
-var lookup = function (root, rExcludes, rIncludes) {
-    return new Lookup(root, rExcludes, rIncludes).lookup()
+var lookdown = function (root, rExcludes, rIncludes) {
+    return new Lookup(root, rExcludes, rIncludes).lookdown()
 }
 
-module.exports = lookup
+var lookup = function (root, formats, pathOnly) {
+    return new Lookup(root).lookup(formats, pathOnly)
+}
+
+exports.lookup = lookup
+exports.lookdown = lookdown
 
 function findAllEfesConfigs(spaceDirname, callback) {
     let regExcludes = [/node_modules/, /\.git/, /\.tmp/, /\.DS_Store/]

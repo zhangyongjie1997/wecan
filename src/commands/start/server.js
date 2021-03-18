@@ -1,6 +1,4 @@
-const path = require('path')
 const http = require('http')
-const url = require('url')
 const corsMiddleware = require('cors')
 const Connect = require('connect')
 const cacheMiddleware = require('./middlewares/cacheMiddleware')
@@ -16,16 +14,6 @@ const ContentTypes = {
     css: 'text/css',
     html: 'text/html',
     json: 'application/json',
-}
-
-const getId = (request) => {
-    let pathname = url.parse(request.url).pathname
-    if (pathname.match(/\/$/)) {
-        pathname = pathname + 'index.html'
-    }
-    let host = request.headers.host
-
-    return path.join(host, pathname)
 }
 
 class ProxyServer {
@@ -45,8 +33,8 @@ class ProxyServer {
         const httpServer = http.createServer(app)
         app.use(contextMiddleware)
         app.use(resolveIdMiddleware)
-        app.use(corsMiddleware({}))
-        app.use(cacheMiddleware)
+        app.use(corsMiddleware())
+        app.use(cacheMiddleware(this.workSpaceConfig, this.workSpaceDirname, this.options))
         app.use(buildSourceMiddleware)
         httpServer.listen(this.options.port, (err) => {
             if (err) {
