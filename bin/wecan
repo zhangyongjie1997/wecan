@@ -2,4 +2,4 @@
 
 process.title = 'wecan';
 
-require('../dist/efes');
+require('../src/wecan');

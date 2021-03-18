@@ -1,0 +1,23 @@
+{
+  "name": "publish",
+  "version": "0.1",
+  "author": "eagle.h",
+  "description": "发布、打包最终代码。",
+  "options": [{
+    "flags": "-c, --compress",
+    "description": "压缩代码"
+  }, {
+    "flags": "-a, --all",
+    "description": "git commit -a 参数"
+  }, {
+    "flags": "-m, --message [value]",
+    "description": "git commit -m 参数"
+  }, {
+    "flags": "--outpath [value]",
+    "description": "发布目录"
+  }, {
+    "flags": "--color"
+  }],
+  "requires": [],
+  "packages": []
+}
