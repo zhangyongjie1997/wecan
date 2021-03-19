@@ -44,10 +44,9 @@ exports.match = function match(requestHost, requestPath, projectConfigs, workSpa
   if (!matchedPathConfigs) {
     // 由于需要支持 一个根访问路径 可以配置多个 本地目录，
     // 所以匹配出来的本地路径有可能会有多个。
+    
     // todo 每个查找在第一次大约要使用300ms，有待优化
-    console.time('start')
     let _matchedPathConfigs = doMatch(requestPath, projectConfigs, workSpaceDirname);
-    console.timeEnd('start')
     // 将已经查找到的路径对应关系缓存起来，方便下次调用。
     catchMatchedPathConfigs[md5(requestHost + '/' + requestPath)] = _matchedPathConfigs;
 

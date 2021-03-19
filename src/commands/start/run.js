@@ -1,6 +1,7 @@
 const fsp = require('../../utils/fs.js')
 const path = require('../../utils/path.js')
 const ProxyServer = require('./server')
+const chalk = require('chalk')
 
 global.efesecho.log('正在启动efes本地代理服务...')
 let stream = process.stdout

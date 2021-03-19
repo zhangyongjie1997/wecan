@@ -24,7 +24,7 @@
         "<node_internals>/**"
       ],
       "type": "node",
-      "args": ["start"],
+      "args": ["--inspect-brk", "start"],
       "cwd": "/Users/zhangyongjie/Desktop/work/WorksapceEfes"
     }
   ]

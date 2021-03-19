@@ -1,42 +1,37 @@
 const fs = require('fs')
-const async = require('async')
 const path = require('./path')
 const readFile = require('./readFile')
+const noop = function () {}
 
+exports.build = async function build(pathConfigs, options = {}, callback = noop) {
+    let _errors = []
 
-exports.build = function build(pathConfigs, options, callback) {
-    
-  let _data, _errors = [];
-
-  async.eachSeries(pathConfigs, function iterator(pathConfig, cb) {
-    if (options.direct) {
-      let _pathname = path.join(pathConfig.root, pathConfig.output);
-      fs.readFile(_pathname, options, function(err, data) {
-        if (err) {
-          errors.push(err.message);
-          cb();
+    var pathConfig
+    for (var i = 0; i < pathConfigs.length; i++) {
+        pathConfig = pathConfigs[i]
+        if (options.direct) {
+            let _pathname = path.join(pathConfig.root, pathConfig.output)
+            if (fs.existsSync(_pathname)) {
+                try {
+                    let fileData = fs.readFileSync(_pathname, options)
+                    if (fileData) {
+                        callback(fileData)
+                        return [null, fileData, _pathname]
+                    }
+                } catch (error) {}
+            }
+        } else {
+            const res = await readFile(pathConfig, options, function (err, data) {
+                if (err) {
+                    _errors.push(err.message)
+                }
+                if (data) {
+                    callback(data)
+                }
+            })
+            if(res[1]){
+                return res
+            }
         }
-        if (data) {
-          callback(null, data, _pathname);
-          cb();
-        }
-      });
-    } else {
-      readFile(pathConfig, options, function(err, data) {
-        if (err) {
-          _errors.push(err.message);
-          cb();
-        }
-        if (data) {
-          _data = data;
-          callback(null, data, pathConfig);
-          cb();
-        }
-      });
     }
-  }, function() {
-    if (!_data && _errors.length > 0) {
-      callback(_errors);
-    }
-  });
-};
+}

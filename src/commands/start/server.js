@@ -5,6 +5,7 @@ const cacheMiddleware = require('./middlewares/cacheMiddleware')
 const contextMiddleware = require('./middlewares/contextMiddleware')
 const resolveIdMiddleware = require('./middlewares/resolveIdMiddleware')
 const buildSourceMiddleware = require('./middlewares/buildSourceMiddleware')
+const resolveResponseMiddleware = require('./middlewares/resolveResponseMiddleware')
 const epc = require('../../utils/efesProjectConfigs')
 
 const app = Connect()
@@ -25,7 +26,9 @@ class ProxyServer {
         this.workSpaceConfig = workSpaceConfig
         this.workSpaceDirname = workSpaceDirname
         this.options = options
+        console.time('a')
         this.allConfigs = epc.find(workSpaceConfig, workSpaceDirname)
+        console.timeEnd('a')
         this.__initServer()
     }
 
@@ -34,8 +37,9 @@ class ProxyServer {
         app.use(contextMiddleware)
         app.use(resolveIdMiddleware)
         app.use(corsMiddleware())
-        app.use(cacheMiddleware(this.workSpaceConfig, this.workSpaceDirname, this.options))
+        app.use(cacheMiddleware(this.allConfigs, this.workSpaceConfig, this.workSpaceDirname, this.options))
         app.use(buildSourceMiddleware)
+        app.use(resolveResponseMiddleware)
         httpServer.listen(this.options.port, (err) => {
             if (err) {
                 global.efesecho.error(chalk.red('efes本地代理服务启动失败'))
