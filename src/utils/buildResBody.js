@@ -12,6 +12,7 @@ exports.build = async function build(pathConfigs, options = {}, callback = noop)
         if (options.direct) {
             let _pathname = path.join(pathConfig.root, pathConfig.output)
             if (fs.existsSync(_pathname)) {
+                global.efesecho.log(chalk.yellow('src:') + ' ' + chalk.grey(_pathname))
                 try {
                     let fileData = fs.readFileSync(_pathname, options)
                     if (fileData) {
@@ -29,9 +30,7 @@ exports.build = async function build(pathConfigs, options = {}, callback = noop)
                     callback(data)
                 }
             })
-            if(res[1]){
-                return res
-            }
+            return res
         }
     }
 }

@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const { ModuleGraph } = require('../moduleGraph')
 const epc = require('../../../utils/efesProjectConfigs')
 const reqMatchToLocalPath = require('../../../utils/reqMatchToLocalPath')
@@ -15,14 +16,15 @@ module.exports = function (allConfigs, workSpaceConfig, workSpaceDirname, option
             
             const projectConfigs = epc.getProjectConfig(host, pathname, workSpaceConfig, workSpaceDirname, allConfigs);
             const pathConfigs = reqMatchToLocalPath.match(host, pathname, projectConfigs, workSpaceDirname);
-            const [error, fileData, filePath] = await build(pathConfigs, options).catch(err => {debugger;console.log(err)})
+            const [error, fileData, filePath] = await build(pathConfigs, options).catch(err => [err, null, null])
             if (error) {
 
                 global.efesecho.error(chalk.bold.white.bgRed(' ERROR '));
           
-                error.some(function(_err) {
-                  global.efesecho.error(_err);
-                });
+                global.efesecho.error(error.message);
+                // error.some(function(_err) {
+                //   global.efesecho.error(_err);
+                // });
           
                 if (fileData) {
                     request.context.code = 502

@@ -1,5 +1,6 @@
 const es2015 = require('babel-preset-es2015')
 const react = require('babel-preset-react')
+const chalk = require('chalk')
 const rJsFile = /\.(babel|es6|es2015|jsx|js|coffee)$/i
 const rBabel = /\.(babel|es6|es2015)$/i
 const rJsx = /\.jsx$/i
@@ -39,7 +40,7 @@ module.exports = function gulpBuildJs(srcs, isPipe, beforeConcatPipe, publishDir
                     through(function (file, enc, cb) {
                         let contents = file.contents.toString()
                         let _path = file.history && file.history[0]
-
+                        global.efesecho.log(chalk.yellow('src:') + ' ' + chalk.grey(_path))
                         contents = '/** SOURCE: ' + _path + '  **/\n\n\n' + contents + '\n\n\n'
                         // global.efesecho.log(chalk.yellow('src:') + ' ' + chalk.grey(_path));
 
@@ -48,7 +49,7 @@ module.exports = function gulpBuildJs(srcs, isPipe, beforeConcatPipe, publishDir
                             console.log(chalk.yellow('非js文件：') + _path)
                         }
 
-                        file.contents = new Buffer(contents)
+                        file.contents = Buffer.from(contents)
                         return cb(null, file)
                     })
                 )

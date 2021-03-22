@@ -4,6 +4,17 @@
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    {
+      "name": "wecan start",
+      "program": "${workspaceFolder}/src/wecan.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "args": ["start"],
+      "cwd": "/Users/zhangyongjie/Desktop/work/WorksapceEfes"
+    },
 
     {
       "name": "wecan publish",
@@ -17,7 +28,7 @@
       "cwd": "/Users/zhangyongjie/Desktop/work/WorksapceEfes/fe-edaijia-events/2020/driver2driver"
     },
     {
-      "name": "wecan start",
+      "name": "wecan start profile",
       "program": "${workspaceFolder}/src/wecan.js",
       "request": "launch",
       "skipFiles": [

@@ -1,4 +1,5 @@
 const gulp = require('gulp')
+const chalk = require('chalk')
 const $ = require('gulp-load-plugins')()
 const rCssFile = /\.(less|css)$/i
 const rLess = /\.less$/i
@@ -28,14 +29,14 @@ module.exports = function gulpBuildCss(srcs, isPipe, beforeConcatPipe, publishDi
                         let _path = file.history && file.history[0]
 
                         contents = '\n\n\n /** SOURCE: ' + _path + '  **/\n\n\n' + contents
-                        // global.efesecho.log(chalk.yellow('src:') + ' ' + chalk.grey(_path));
+                        global.efesecho.log(chalk.yellow('src:') + ' ' + chalk.grey(_path));
 
                         if (!_path.match(rCssFile)) {
                             contents = ''
                             console.log(chalk.yellow('非css文件：') + _path)
                         }
 
-                        file.contents = new Buffer(contents)
+                        file.contents = Buffer.from(contents)
                         return cb(null, file)
                     })
                 )

@@ -26,9 +26,7 @@ class ProxyServer {
         this.workSpaceConfig = workSpaceConfig
         this.workSpaceDirname = workSpaceDirname
         this.options = options
-        console.time('a')
         this.allConfigs = epc.find(workSpaceConfig, workSpaceDirname)
-        console.timeEnd('a')
         this.__initServer()
     }
 
