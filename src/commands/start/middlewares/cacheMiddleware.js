@@ -21,7 +21,7 @@ module.exports = function (allConfigs, workSpaceConfig, workSpaceDirname, option
 
                 global.efesecho.error(chalk.bold.white.bgRed(' ERROR '));
           
-                global.efesecho.error(error.message);
+                global.efesecho.error(error.message || error);
                 // error.some(function(_err) {
                 //   global.efesecho.error(_err);
                 // });

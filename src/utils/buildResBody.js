@@ -30,7 +30,10 @@ exports.build = async function build(pathConfigs, options = {}, callback = noop)
                     callback(data)
                 }
             })
-            return res
+            if(res[1]){
+                return res
+            }
         }
     }
+    return [_errors[0], null]
 }
