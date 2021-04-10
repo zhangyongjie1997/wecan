@@ -1,6 +1,6 @@
 {
   "name": "wecan",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "npm",
   "main": "src/efes.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "gulp-if": "^3.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-less": "^4.0.1",
+    "gulp-load-plugins": "^2.0.6",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^9.0.0",
     "gulp-tinypng-compress": "^1.2.5",
@@ -57,7 +58,7 @@
     "prompt": "^1.1.0",
     "regex-files": "^0.1.2",
     "replace-ext": "^2.0.0",
-    "rmdir": "^1.2.0",
+    "rmdir": "^1.0.0",
     "text-table": "^0.2.0",
     "through-gulp": "^0.5.0",
     "through2": "^4.0.2"
@@ -69,7 +70,6 @@
     "eslint-plugin-node": "^11.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-load-plugins": "^2.0.6",
     "gulp-plumber": "^1.0.1",
     "gulp-util": "^3.0.1"
   }

@@ -1,11 +1,11 @@
 {
   "name": "wecan",
-  "version": "1.1.13",
+  "version": "1.2.2",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
-      "version": "1.1.13",
+      "version": "1.2.2",
       "license": "ISC",
       "dependencies": {
         "@babel/core": "^7.13.10",
@@ -31,6 +31,7 @@
         "gulp-if": "^3.0.0",
         "gulp-jade": "^1.1.0",
         "gulp-less": "^4.0.1",
+        "gulp-load-plugins": "^2.0.6",
         "gulp-plumber": "^1.0.1",
         "gulp-postcss": "^9.0.0",
         "gulp-tinypng-compress": "^1.2.5",
@@ -47,7 +48,7 @@
         "prompt": "^1.1.0",
         "regex-files": "^0.1.2",
         "replace-ext": "^2.0.0",
-        "rmdir": "^1.2.0",
+        "rmdir": "^1.0.0",
         "text-table": "^0.2.0",
         "through-gulp": "^0.5.0",
         "through2": "^4.0.2"
@@ -62,7 +63,6 @@
         "eslint-plugin-node": "^11.1.0",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
-        "gulp-load-plugins": "^2.0.6",
         "gulp-plumber": "^1.0.1",
         "gulp-util": "^3.0.1"
       }
@@ -6574,7 +6574,6 @@
       "version": "2.0.6",
       "resolved": "https://registry.npmjs.org/gulp-load-plugins/-/gulp-load-plugins-2.0.6.tgz",
       "integrity": "sha512-HP5jUhPzvib37kWYLFvhDQJpBar2pXG7diFOFI4/PgCrQWobV5/MfnU0dMx0d5NfyJGcRrpUI1E0MROlLvNO4A==",
-      "dev": true,
       "dependencies": {
         "array-unique": "^0.3.2",
         "fancy-log": "^1.2.0",
@@ -6592,7 +6591,6 @@
       "version": "4.0.0",
       "resolved": "https://registry.npmjs.org/findup-sync/-/findup-sync-4.0.0.tgz",
       "integrity": "sha512-6jvvn/12IC4quLBL1KNokxC7wWTvYncaVUYSoxWw7YykPLuRrnv4qdHcSOywOI5RpkOVGeQRtWM8/q+G6W6qfQ==",
-      "dev": true,
       "dependencies": {
         "detect-file": "^1.0.0",
         "is-glob": "^4.0.0",
@@ -7035,9 +7033,9 @@
       }
     },
     "node_modules/gulp/node_modules/y18n": {
-      "version": "3.2.1",
-      "resolved": "https://registry.npm.taobao.org/y18n/download/y18n-3.2.1.tgz?cache=0&sync_timestamp=1606777983708&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fy18n%2Fdownload%2Fy18n-3.2.1.tgz",
-      "integrity": "sha1-bRX7qITAhnnA136I53WegR4H+kE="
+      "version": "3.2.2",
+      "resolved": "https://registry.npmjs.org/y18n/-/y18n-3.2.2.tgz",
+      "integrity": "sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ=="
     },
     "node_modules/gulp/node_modules/yargs": {
       "version": "7.1.1",
@@ -7800,14 +7798,6 @@
       "integrity": "sha1-EEqOSqym09jNFXqO+L+rLXo//bY=",
       "engines": {
         "node": ">=0.10.0"
-      }
-    },
-    "node_modules/is": {
-      "version": "0.2.7",
-      "resolved": "https://registry.npmjs.org/is/-/is-0.2.7.tgz",
-      "integrity": "sha1-OzSixI81mXLzUEKEkZOucmS2NWI=",
-      "engines": {
-        "node": "*"
       }
     },
     "node_modules/is-absolute": {
@@ -9718,34 +9708,6 @@
       "version": "1.1.71",
       "resolved": "https://registry.npmjs.org/node-releases/-/node-releases-1.1.71.tgz",
       "integrity": "sha512-zR6HoT6LrLCRBwukmrVbHv0EpEQjksO6GmFcZQQuCAy139BEsoVKPYnf3jongYW83fAa1torLGYwxxky/p28sg=="
-    },
-    "node_modules/node.extend": {
-      "version": "1.0.8",
-      "resolved": "https://registry.npmjs.org/node.extend/-/node.extend-1.0.8.tgz",
-      "integrity": "sha1-urBDefc4P0WHmQyd8Htqf2Xbdys=",
-      "engines": [
-        "node >= 0.4.0"
-      ],
-      "dependencies": {
-        "is": "~0.2.6",
-        "object-keys": "~0.4.0"
-      }
-    },
-    "node_modules/node.extend/node_modules/object-keys": {
-      "version": "0.4.0",
-      "resolved": "https://registry.npmjs.org/object-keys/-/object-keys-0.4.0.tgz",
-      "integrity": "sha1-KKaq50KN0sOpLz2V8hM13SBOAzY="
-    },
-    "node_modules/node.flow": {
-      "version": "1.2.3",
-      "resolved": "https://registry.npmjs.org/node.flow/-/node.flow-1.2.3.tgz",
-      "integrity": "sha1-4cRKgq7KjXi0WKd/s9xkLy66Jkk=",
-      "engines": [
-        "node >= 0.4.0"
-      ],
-      "dependencies": {
-        "node.extend": "1.0.8"
-      }
     },
     "node_modules/normalize-package-data": {
       "version": "2.5.0",
@@ -13809,15 +13771,12 @@
       }
     },
     "node_modules/rmdir": {
-      "version": "1.2.0",
-      "resolved": "https://registry.npmjs.org/rmdir/-/rmdir-1.2.0.tgz",
-      "integrity": "sha1-T+A1fLBhaMJY5z6WgJPcTooPMlM=",
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/rmdir/-/rmdir-1.0.0.tgz",
+      "integrity": "sha1-SB4YMoiH//r6OO5YZWgY+ln2ACg=",
       "engines": [
         "node >= 0.8.0"
-      ],
-      "dependencies": {
-        "node.flow": "1.2.3"
-      }
+      ]
     },
     "node_modules/run-async": {
       "version": "2.4.1",
@@ -21914,9 +21873,9 @@
           }
         },
         "y18n": {
-          "version": "3.2.1",
-          "resolved": "https://registry.npm.taobao.org/y18n/download/y18n-3.2.1.tgz?cache=0&sync_timestamp=1606777983708&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fy18n%2Fdownload%2Fy18n-3.2.1.tgz",
-          "integrity": "sha1-bRX7qITAhnnA136I53WegR4H+kE="
+          "version": "3.2.2",
+          "resolved": "https://registry.npmjs.org/y18n/-/y18n-3.2.2.tgz",
+          "integrity": "sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ=="
         },
         "yargs": {
           "version": "7.1.1",
@@ -22158,7 +22117,6 @@
       "version": "2.0.6",
       "resolved": "https://registry.npmjs.org/gulp-load-plugins/-/gulp-load-plugins-2.0.6.tgz",
       "integrity": "sha512-HP5jUhPzvib37kWYLFvhDQJpBar2pXG7diFOFI4/PgCrQWobV5/MfnU0dMx0d5NfyJGcRrpUI1E0MROlLvNO4A==",
-      "dev": true,
       "requires": {
         "array-unique": "^0.3.2",
         "fancy-log": "^1.2.0",
@@ -22173,7 +22131,6 @@
           "version": "4.0.0",
           "resolved": "https://registry.npmjs.org/findup-sync/-/findup-sync-4.0.0.tgz",
           "integrity": "sha512-6jvvn/12IC4quLBL1KNokxC7wWTvYncaVUYSoxWw7YykPLuRrnv4qdHcSOywOI5RpkOVGeQRtWM8/q+G6W6qfQ==",
-          "dev": true,
           "requires": {
             "detect-file": "^1.0.0",
             "is-glob": "^4.0.0",
@@ -23024,11 +22981,6 @@
       "version": "1.0.0",
       "resolved": "https://registry.npm.taobao.org/invert-kv/download/invert-kv-1.0.0.tgz",
       "integrity": "sha1-EEqOSqym09jNFXqO+L+rLXo//bY="
-    },
-    "is": {
-      "version": "0.2.7",
-      "resolved": "https://registry.npmjs.org/is/-/is-0.2.7.tgz",
-      "integrity": "sha1-OzSixI81mXLzUEKEkZOucmS2NWI="
     },
     "is-absolute": {
       "version": "1.0.0",
@@ -24561,30 +24513,6 @@
       "version": "1.1.71",
       "resolved": "https://registry.npmjs.org/node-releases/-/node-releases-1.1.71.tgz",
       "integrity": "sha512-zR6HoT6LrLCRBwukmrVbHv0EpEQjksO6GmFcZQQuCAy139BEsoVKPYnf3jongYW83fAa1torLGYwxxky/p28sg=="
-    },
-    "node.extend": {
-      "version": "1.0.8",
-      "resolved": "https://registry.npmjs.org/node.extend/-/node.extend-1.0.8.tgz",
-      "integrity": "sha1-urBDefc4P0WHmQyd8Htqf2Xbdys=",
-      "requires": {
-        "is": "~0.2.6",
-        "object-keys": "~0.4.0"
-      },
-      "dependencies": {
-        "object-keys": {
-          "version": "0.4.0",
-          "resolved": "https://registry.npmjs.org/object-keys/-/object-keys-0.4.0.tgz",
-          "integrity": "sha1-KKaq50KN0sOpLz2V8hM13SBOAzY="
-        }
-      }
-    },
-    "node.flow": {
-      "version": "1.2.3",
-      "resolved": "https://registry.npmjs.org/node.flow/-/node.flow-1.2.3.tgz",
-      "integrity": "sha1-4cRKgq7KjXi0WKd/s9xkLy66Jkk=",
-      "requires": {
-        "node.extend": "1.0.8"
-      }
     },
     "normalize-package-data": {
       "version": "2.5.0",
@@ -27652,12 +27580,9 @@
       }
     },
     "rmdir": {
-      "version": "1.2.0",
-      "resolved": "https://registry.npmjs.org/rmdir/-/rmdir-1.2.0.tgz",
-      "integrity": "sha1-T+A1fLBhaMJY5z6WgJPcTooPMlM=",
-      "requires": {
-        "node.flow": "1.2.3"
-      }
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/rmdir/-/rmdir-1.0.0.tgz",
+      "integrity": "sha1-SB4YMoiH//r6OO5YZWgY+ln2ACg="
     },
     "run-async": {
       "version": "2.4.1",
