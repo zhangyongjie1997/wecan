@@ -9,6 +9,7 @@ module.exports = function (allConfigs, workSpaceConfig, workSpaceDirname, option
         const { pathname, host, id } = request.context
         const cache = moduleGraph.searchModuleById(id)
         if(cache !== null && cache !== undefined) {
+            global.efesecho.log(chalk.bold.green('Cache: ') + cache.root + cache.output);
             request.context.sourceUrl = cache
             request.context.useCache = true
             next()

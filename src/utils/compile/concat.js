@@ -8,7 +8,7 @@ const gulpBuildCss = require('./gulpBuildCss')
 const noop = function(){}
 
 
-module.exports = async function (pathname, options, callback=noop) {
+module.exports = async function concat(pathname, options, callback=noop) {
     let baseDir = process.cwd()
 
     if (env && env.baseDir) {

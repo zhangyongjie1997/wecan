@@ -3,7 +3,7 @@ const $ = require('gulp-load-plugins')()
 const path = require('../path.js');
 const through = require('through-gulp')
 
-module.exports = async function(_pathname, pathConfig, publishDir, devDir, options) {
+module.exports = async function gulpBuildSrc(_pathname, pathConfig, publishDir, devDir, options) {
     return new Promise(resolve => {
         gulp.src(_pathname, {
             base: path.join(pathConfig.root, devDir || ''),

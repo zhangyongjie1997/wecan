@@ -6,7 +6,7 @@ const noop = function () {}
 exports.build = async function build(pathConfigs, options = {}, callback = noop) {
     let _errors = []
 
-    var pathConfig
+    let pathConfig
     for (var i = 0; i < pathConfigs.length; i++) {
         pathConfig = pathConfigs[i]
         if (options.direct) {

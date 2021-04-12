@@ -113,7 +113,7 @@ let startServer = function(spaceProjectConfigs, spaceInfo, spaceDirname, options
 
 };
 
-module.exports = function(spaceInfo, spaceDirname, options) {
+module.exports = function a(spaceInfo, spaceDirname, options) {
 
   epc.find(spaceInfo, spaceDirname, function(spaceProjectConfigs){
     // console.log(spaceProjectConfigs);

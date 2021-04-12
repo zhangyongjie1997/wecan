@@ -18,13 +18,10 @@ const ContentTypes = {
 }
 
 class ProxyServer {
-    workSpaceConfig = null // workSpace 配置
-    workSpaceDirname = null // workSpace 目录
-    options = null
 
     constructor(workSpaceConfig, workSpaceDirname, options) {
-        this.workSpaceConfig = workSpaceConfig
-        this.workSpaceDirname = workSpaceDirname
+        this.workSpaceConfig = workSpaceConfig   // workSpace 配置
+        this.workSpaceDirname = workSpaceDirname   // workSpace 目录
         this.options = options
         this.allConfigs = epc.find(workSpaceConfig, workSpaceDirname)
         this.__initServer()

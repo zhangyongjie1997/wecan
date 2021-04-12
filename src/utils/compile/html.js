@@ -7,7 +7,7 @@ const through = require('through-gulp')
 
 const path = require('../path.js')
 
-module.exports = function (pathname, options, callback) {
+module.exports = function buildHtml(pathname, options, callback) {
     return new Promise((resolve) => {
         if (!pathname.config) {
             let _pathname = path.join(pathname.root, pathname.output)
