@@ -17,7 +17,7 @@ exports.build = async function build(pathConfigs, options = {}, callback = noop)
                     let fileData = fs.readFileSync(_pathname, options)
                     if (fileData) {
                         callback(fileData)
-                        return [null, fileData, _pathname]
+                        return [null, fileData, pathConfig]
                     }
                 } catch (error) {}
             }

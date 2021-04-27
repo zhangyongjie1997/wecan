@@ -98,7 +98,7 @@ module.exports = function buildHtml(pathname, options, callback) {
             gulp.src(_pathname).pipe(
                 through(function (file) {
                     callback(null, file.contents)
-                    resolve([null, file.contents, _pathname])
+                    resolve([null, file.contents])
                     return file
                 })
             )

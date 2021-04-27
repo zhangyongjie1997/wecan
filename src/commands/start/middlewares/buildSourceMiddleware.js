@@ -4,6 +4,7 @@ module.exports = async function (request, response, next) {
     if (request.context.useCache) {
         const source = request.context.sourceUrl
         if (typeof source === 'string') {
+            const [error, fileData] = await readFile(source)
         } else {
             const [error, fileData] = await readFile(source)
             if (error) {
@@ -25,4 +26,9 @@ module.exports = async function (request, response, next) {
         }
     }
     next()
+}
+
+
+const parseSource = (source) => {
+    
 }

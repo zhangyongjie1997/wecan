@@ -17,6 +17,7 @@ module.exports = function (allConfigs, workSpaceConfig, workSpaceDirname, option
             const projectConfigs = epc.getProjectConfig(host, pathname, workSpaceConfig, workSpaceDirname, allConfigs);
             const pathConfigs = reqMatchToLocalPath.match(host, pathname, projectConfigs, workSpaceDirname);
             const [error, fileData, filePath] = await build(pathConfigs, options).catch(err => [err, null, null])
+            console.log(filePath)
             if (error) {
 
                 global.efesecho.error(chalk.bold.white.bgRed(' ERROR '));
