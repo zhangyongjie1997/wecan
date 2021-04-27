@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const readFile = require('../../../utils/readFile')
 module.exports = async function (request, response, next) {
     if (request.context.useCache) {
