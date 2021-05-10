@@ -17,15 +17,17 @@ module.exports = function (allConfigs, workSpaceConfig, workSpaceDirname, option
             const projectConfigs = epc.getProjectConfig(host, pathname, workSpaceConfig, workSpaceDirname, allConfigs);
             const pathConfigs = reqMatchToLocalPath.match(host, pathname, projectConfigs, workSpaceDirname);
             const [error, fileData, filePath] = await build(pathConfigs, options).catch(err => [err, null, null])
-            console.log(filePath)
             if (error) {
 
                 global.efesecho.error(chalk.bold.white.bgRed(' ERROR '));
           
-                global.efesecho.error(error.message || error);
-                // error.some(function(_err) {
-                //   global.efesecho.error(_err);
-                // });
+                if(Array.isArray(error)){
+                    error.some(function(_err) {
+                      global.efesecho.error(_err);
+                    });
+                } else {
+                    global.efesecho.error(error.message || error);
+                }
           
                 if (fileData) {
                     request.context.code = 502

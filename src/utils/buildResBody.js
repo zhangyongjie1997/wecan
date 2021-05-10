@@ -35,5 +35,5 @@ exports.build = async function build(pathConfigs, options = {}, callback = noop)
             }
         }
     }
-    return [_errors[0], null]
+    return [_errors, null]
 }
